@@ -9,6 +9,11 @@ app.use(express.json());
 app.use('/api', searchRoutes);
 app.use('/api', historyRoutes);
 
+// Add a route for the "/api" endpoint
+app.get('/api', (req, res) => {
+    res.send('Welcome to the API!');
+});
+  
 const PORT = process.env.PORT || 3000;
 
 db.connectToDatabase()

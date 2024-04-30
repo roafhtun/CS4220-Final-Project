@@ -32,7 +32,7 @@ router.get('/search/:id/details', async (req, res) => {
         }
         res.json(details);
     } catch (error) {
-        res.status(500).json({ error: 'Error retrieving item details' });
+        res.status(500).json({ error: 'Error retrieving asset details' });
     }
 });
 
