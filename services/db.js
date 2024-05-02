@@ -9,6 +9,7 @@ export async function connectToDatabase() {
     await client.connect();
 }
 
+//roaf
 export async function updateSearchHistory(searchTerm, count) {
     const db = client.db(process.env.DB_NAME);
     const collection = db.collection('search_history');
@@ -27,18 +28,6 @@ export async function updateSearchHistory(searchTerm, count) {
     }
 }
 
-export async function findItemInCache(id) {
-    const db = client.db(process.env.DB_NAME);
-    const collection = db.collection('search_cache');
-    return await collection.findOne({ id });
-}
-
-export async function saveItemToCache(id, data) {
-    const db = client.db(process.env.DB_NAME);
-    const collection = db.collection('search_cache');
-    await collection.updateOne({ id }, { $set: data }, { upsert: true });
-}
-
 export async function getSearchHistoryByTerm(searchTerm) {
     const db = client.db(process.env.DB_NAME);
     const collection = db.collection('search_history');
@@ -49,4 +38,19 @@ export async function getAllSearchHistory() {
     const db = client.db(process.env.DB_NAME);
     const collection = db.collection('search_history');
     return await collection.find().toArray();
+}
+
+
+//end roaf
+
+export async function findItemInCache(id) {
+    const db = client.db(process.env.DB_NAME);
+    const collection = db.collection('search_cache');
+    return await collection.findOne({ id });
+}
+
+export async function saveItemToCache(id, data) {
+    const db = client.db(process.env.DB_NAME);
+    const collection = db.collection('search_cache');
+    await collection.updateOne({ id }, { $set: data }, { upsert: true });
 }
