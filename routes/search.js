@@ -2,6 +2,18 @@ import express from 'express';
 import * as api from '../services/api.js';
 import * as db from '../services/db.js';
 
+//Henry
+/** Just claiming this section. Will edit this on Sunday. Template copied from Roaf:
+ *
+ * Handles the '/history' route, retrieving search history from the database.
+ * If a 'searchTerm' query parameter is provided, it retrieves the search history for that term.
+ * Otherwise, it retrieves all search history.
+ *
+ * @param {Object} req - The Express request object.
+ * @param {string} [req.query.searchTerm] - The search term to filter the history by.
+ * @param {Object} res - The Express response object.
+ * @returns {Promise<void>} - A Promise that resolves when the response is sent.
+ */
 const router = express.Router();
 
 router.get('/search', async (req, res) => {
