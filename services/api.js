@@ -17,7 +17,7 @@ export async function searchByTerm(searchTerm) {
         const response = await axios.get(`${BASE_URL}/assets`, {
             params: {
                 search: searchTerm,
-                limit: 10 // Adjust the limit as needed
+                limit: 10 // Adjust the limit for search results
             }
         });
         return response.data.data.map((item) => ({
