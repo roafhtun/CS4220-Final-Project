@@ -9,7 +9,7 @@ export async function connectToDatabase() {
     await client.connect();
 }
 
-//roaf
+
 /**
  * Updates the search history for a given search term, incrementing the search count and updating the last searched date.
  * If the search term does not exist in the search history, a new entry is created.
@@ -58,7 +58,7 @@ export async function getAllSearchHistory() {
   return await collection.find().toArray();
 }
 
-//end roaf
+
 
 export async function findItemInCache(id) {
     const db = client.db(process.env.DB_NAME);

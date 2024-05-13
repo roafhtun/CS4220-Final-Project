@@ -1,7 +1,7 @@
 import express from 'express';
 import * as db from '../services/db.js';
 
-//Safoora
+
 /**
  * Handles the '/history' route, retrieving search history from the database.
  * If a 'searchTerm' query parameter is provided, it retrieves the search history for that term.
