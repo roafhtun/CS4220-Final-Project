@@ -24,7 +24,8 @@ router.get('/search', async (req, res) => {
 /** 
  * If cache is true, it finds the object that matches ID in the online database.
  *     If it can't find it, it retrieves it from the api instead and saves it to the online database.
- * If cache is false, it retrieves it from the api and 
+ * If cache is false, it retrieves it from the api.
+ * Finally, we return the search result.
  */
 router.get('/search/:id/details', async (req, res) => {
     const { id } = req.params;
