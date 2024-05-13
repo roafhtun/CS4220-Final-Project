@@ -3,16 +3,10 @@ import * as api from '../services/api.js';
 import * as db from '../services/db.js';
 
 //Henry
-/** Just claiming this section. Will edit this on Sunday. Template copied from Roaf:
- *
- * Handles the '/history' route, retrieving search history from the database.
- * If a 'searchTerm' query parameter is provided, it retrieves the search history for that term.
- * Otherwise, it retrieves all search history.
- *
- * @param {Object} req - The Express request object.
- * @param {string} [req.query.searchTerm] - The search term to filter the history by.
- * @param {Object} res - The Express response object.
- * @returns {Promise<void>} - A Promise that resolves when the response is sent.
+/** 
+ * Handles the '/search' route, retrieving search results from the api.
+ * If a searchTerm is present, it returns every object matching the name.
+ * This will update the MongoDB on the searchTerm used and the amount of results returned.
  */
 const router = express.Router();
 
@@ -27,6 +21,11 @@ router.get('/search', async (req, res) => {
     }
 });
 
+/** 
+ * If cache is true, it finds the object that matches ID in the online database.
+ *     If it can't find it, it retrieves it from the api instead and saves it to the online database.
+ * If cache is false, it retrieves it from the api and 
+ */
 router.get('/search/:id/details', async (req, res) => {
     const { id } = req.params;
     const { cache } = req.query;
